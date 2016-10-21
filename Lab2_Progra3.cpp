@@ -8,6 +8,7 @@ bool isPrime(int);
 bool hashard(int);
 bool hashardtruncable(int);
 bool hashardStrong(int);
+int sumadigitos(int);
 int main(){
 	int option;
 	cout<<"----Menú-------\n 1)Ejercicio 1\n 2) Ejercicio 2\n 3) Ejercicio 3\n 4)Salir"<<endl;
@@ -114,7 +115,7 @@ bool hashardtruncable(int num){
 	return hash;
 }
 bool hashard(int num){
-	if (num%(base(num))==0)
+	if (num%(sumadigitos(num))==0)
 	{
 		return true;
 	}else{
@@ -122,7 +123,7 @@ bool hashard(int num){
 	}
 }
 bool hashardStrong(int num){
-	int number = num/(base(num));
+	int number = num/(sumadigitos(num));
 	if (isPrime(number))
 	{
 		return true;
@@ -130,3 +131,12 @@ bool hashardStrong(int num){
 		return false;
 	}
 }
+int sumadigitos(int num){
+	int numDigits = 0;
+	do{
+		numDigits+=num%10;
+		num/=10;
+	}while(num > 0);
+	return numDigits;
+}
+
