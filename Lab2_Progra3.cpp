@@ -2,7 +2,8 @@
 #include <cmath>
 using namespace std;
 int base(int);
-void isPandigital(int);
+bool isPandigital(int);
+bool hashard(int);
 int decimal(int,int);
 bool isPrime(int);
 int main(){
@@ -10,7 +11,7 @@ int main(){
 	cout<<"----Menú-------\n 1)Ejercicio 1\n 2) Ejercicio 2\n 3) Ejercicio 3\n 4)Salir"<<endl;
 	cout<<"Ingrese una opción: ";
 	cin>>option;
-	while(option!=4){
+	while(option < 4){
 		if (option == 1){
 			int numPan;
 			cout<<"Ingrese un número pandigital: ";
@@ -33,8 +34,18 @@ int main(){
 				}
 			}
 			cout<<"La suma k es: "<<sumak<<endl;
+		}else if(option == 3){
+			int numHashard;
+			cout<<"Ingrese un número hashard: ";
+			cin>> numHashard;
+			if (hashard(numHashard)){
+				cout<<"HOli"<<endl;
+				
+			}else{
+				cout<<"No es un número hashard"<<endl;
+			}
 		}else{
-
+			cout<<"Ingresó una opción inválida."<<endl;
 		}
 		cout<<"----Menú-------\n 1)Ejercicio 1\n 2) Ejercicio 2\n 3) Ejercicio 3\n 4)Salir"<<endl;
 		cout<<"Ingrese una opción: ";
@@ -75,4 +86,26 @@ int decimal(int num, int base){
 		count++;
 	}while(num>0);
 	return decimalNum;
+}
+bool hashardtruncable(int num){
+	bool hash = true;
+	int digit = base(num);
+	do{
+		if (num%digit == 0){
+			hash = true;
+			num/=10;
+			digit--;
+		}else{
+			hash = false;
+		}
+		return hash;
+	}while(num>0 && hash);
+}
+bool hashard(int num){
+	if (num%(base(num))==0)
+	{
+		return true;
+	}else{
+		return false;
+	}
 }
