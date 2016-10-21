@@ -2,7 +2,7 @@
 using namespace std;
 int base(int);
 void isPandigital(int);
-int decimal(int);
+int decimal(int,int);
 bool isPrime(int);
 int main(){
 	int option;
@@ -11,19 +11,26 @@ int main(){
 	cin>>option;
 	while(option!=4){
 		if (option == 1){
-			base(2044);
+			int numPan;
+			cout<<"Ingrese un número isPandigital: ";
+			cin>> numPan;
+			int baseNum = base(numPan); 
 		}else if(option == 2){
 			int sumak = 0;
 			int numN;
-			cout<<"Ingrese un número para la suma k ";
-			cin>>numN;
-			for (int i = 1; i <=  numN; ++i){
-				if (numN%i == 0)
-				{
-
+			int prime = 0;
+			cout<<"Ingrese un número para la suma k: ";
+			cin>>numN;;
+			for (int i = 1; i <= numN; ++i){
+				if (numN%i== 0){
+					prime = ((numN+i)/i);
+					if (isPrime(prime))
+					{
+						sumak+= prime;
+					}
 				}
 			}
-
+			cout<<"La suma k es: "<<sumak<<endl;
 		}else if(option == 3){
 
 		}else{
@@ -36,7 +43,7 @@ int main(){
 
 	return 0;
 }
-void base(int num){
+int base(int num){
 	int num2 = num;
 	int numDigits = 0;
 	do{
@@ -47,7 +54,7 @@ void base(int num){
 	return numDigits;	
 }
 bool isPrime(int num){
-	int divisors;
+	int divisors = 0;
 	for (int i = 1; i <= num; ++i){
 		if (num%i== 0){
 			divisors+=i;
@@ -55,7 +62,15 @@ bool isPrime(int num){
 	}
 	if (divisors == (num+1)){
 		return true;
+	}else if(divisors == 1){;
+		return true;
 	}else{
 		return false; 
 	}
 }
+/*int decimal(int num, int base){
+	int count = 0;
+	do{
+
+	}while(num>0 && count<base)
+}*/
