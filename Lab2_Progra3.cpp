@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 using namespace std;
 int base(int);
 void isPandigital(int);
@@ -14,7 +15,8 @@ int main(){
 			int numPan;
 			cout<<"Ingrese un número isPandigital: ";
 			cin>> numPan;
-			int baseNum = base(numPan); 
+			int baseNum = base(numPan);
+			cout<<"El decimal del número es: "<< decimal(numPan,baseNum)<<endl;
 		}else if(option == 2){
 			int sumak = 0;
 			int numN;
@@ -44,13 +46,11 @@ int main(){
 	return 0;
 }
 int base(int num){
-	int num2 = num;
 	int numDigits = 0;
 	do{
-		cout<<(num2%10)<<endl;
-		num2/=10;
+		num/=10;
 		numDigits+=1;
-	}while(num2 > 0);
+	}while(num > 0);
 	return numDigits;	
 }
 bool isPrime(int num){
@@ -68,9 +68,13 @@ bool isPrime(int num){
 		return false; 
 	}
 }
-/*int decimal(int num, int base){
+int decimal(int num, int base){
 	int count = 0;
+	int potencia = 0;
+	int decimalNum = 0;
 	do{
-
-	}while(num>0 && count<base)
-}*/
+		decimalNum += pow(num%10, count);
+		num/=10;
+		count++;
+	}while(num>0 && count<base);
+}
