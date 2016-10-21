@@ -3,9 +3,11 @@
 using namespace std;
 int base(int);
 bool isPandigital(int);
-bool hashard(int);
 int decimal(int,int);
 bool isPrime(int);
+bool hashard(int);
+bool hashardtruncable(int);
+bool hashardStrong(int);
 int main(){
 	int option;
 	cout<<"----Menú-------\n 1)Ejercicio 1\n 2) Ejercicio 2\n 3) Ejercicio 3\n 4)Salir"<<endl;
@@ -39,8 +41,18 @@ int main(){
 			cout<<"Ingrese un número hashard: ";
 			cin>> numHashard;
 			if (hashard(numHashard)){
-				cout<<"HOli"<<endl;
-				
+				if (hashardtruncable(numHashard) && hashardStrong(numHashard))
+				{
+					cout<<"Es truncable y un número fuerte de Hashard."<<endl;
+				}else if(hashardtruncable(numHashard) && !hashardStrong(numHashard)){
+					cout<<"Es un número truncable de Hashard."<<endl;
+
+				}else if(!hashardtruncable(numHashard) && hashardStrong(numHashard)){
+					cout<<"Es un número fuerte de Hashard."<<endl;
+
+				}else{
+					cout<<"No es ni fuerte ni truncable"<<endl;
+				}
 			}else{
 				cout<<"No es un número hashard"<<endl;
 			}
@@ -103,6 +115,15 @@ bool hashardtruncable(int num){
 }
 bool hashard(int num){
 	if (num%(base(num))==0)
+	{
+		return true;
+	}else{
+		return false;
+	}
+}
+bool hashardStrong(int num){
+	int number = num/(base(num));
+	if (isPrime(number))
 	{
 		return true;
 	}else{
