@@ -13,11 +13,9 @@ int main(){
 	while(option!=4){
 		if (option == 1){
 			int numPan;
-			cout<<"Ingrese un número isPandigital: ";
+			cout<<"Ingrese un número pandigital: ";
 			cin>> numPan;
 			int baseNum = base(numPan);
-			cout<< baseNum<<endl;
-			cout<<numPan<<endl;
 			cout<<"El decimal del número es: "<< decimal(numPan,baseNum)<<endl;
 		}else if(option == 2){
 			int sumak = 0;
@@ -35,8 +33,6 @@ int main(){
 				}
 			}
 			cout<<"La suma k es: "<<sumak<<endl;
-		}else if(option == 3){
-
 		}else{
 
 		}
@@ -72,17 +68,11 @@ bool isPrime(int num){
 }
 int decimal(int num, int base){
 	int count = 0;
-	int potencia = 0;
 	int decimalNum = 0;
 	do{
-		if (count ==0 )
-		{
-			decimalNum += 1;
-		}
-		decimalNum += ;
-		cout<<decimalNum<<endl;
+		decimalNum+= num%10*pow(base, count);
 		num/=10;
 		count++;
-	}while(num>0 && count<base);
+	}while(num>0);
 	return decimalNum;
 }
