@@ -102,7 +102,7 @@ int decimal(int num, int base){
 }
 bool hashardtruncable(int num){
 	bool hash = true;
-	int digit = base(num);
+	int digit = sumadigitos(num);
 	do{
 		if (num%digit == 0){
 			hash = true;
