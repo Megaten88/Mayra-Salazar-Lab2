@@ -110,8 +110,8 @@ bool hashardtruncable(int num){
 		}else{
 			hash = false;
 		}
-		return hash;
 	}while(num>0 && hash);
+	return hash;
 }
 bool hashard(int num){
 	if (num%(base(num))==0)
