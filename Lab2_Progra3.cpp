@@ -16,6 +16,8 @@ int main(){
 			cout<<"Ingrese un número isPandigital: ";
 			cin>> numPan;
 			int baseNum = base(numPan);
+			cout<< baseNum<<endl;
+			cout<<numPan<<endl;
 			cout<<"El decimal del número es: "<< decimal(numPan,baseNum)<<endl;
 		}else if(option == 2){
 			int sumak = 0;
@@ -73,8 +75,14 @@ int decimal(int num, int base){
 	int potencia = 0;
 	int decimalNum = 0;
 	do{
-		decimalNum += pow(num%10, count);
+		if (count ==0 )
+		{
+			decimalNum += 1;
+		}
+		decimalNum += ;
+		cout<<decimalNum<<endl;
 		num/=10;
 		count++;
 	}while(num>0 && count<base);
+	return decimalNum;
 }
